@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vela Boutique | Moda para todos los días</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f5f2;--ink:#1b1f2a;--mut:#5d6370;--card:#fff;--line:#e2ddd5;--acc:#0f5c4d;--accfg:#fff;--blush:#f2c9d0;--gold:#c7993b;--ok:#0f5c4d;--err:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171f;--ink:#f1eee8;--mut:#a3a8b3;--card:#1d212c;--line:#2d3240;--acc:#4fb39d;--accfg:#0d1a17;--blush:#4a2f36;--ok:#4fb39d;--err:#ff8a80;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14171f;--ink:#f1eee8;--mut:#a3a8b3;--card:#1d212c;--line:#2d3240;--acc:#4fb39d;--accfg:#0d1a17;--blush:#4a2f36;--ok:#4fb39d;--err:#ff8a80;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Jost,system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+h1,h2,h3{font-family:"Bodoni Moda",Georgia,serif;line-height:1.1;margin:0 0 .5em}
+h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:700}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem)}
+h3{font-size:1.15rem}
+a{color:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:16px;padding:12px 20px;flex-wrap:wrap}
+.brand{font:700 1.6rem "Bodoni Moda",Georgia,serif;text-decoration:none;margin-right:auto}
+nav{display:flex;gap:4px;flex-wrap:wrap}
+nav a{text-decoration:none;padding:8px 12px;border-radius:999px;font-weight:500}
+nav a:hover,nav a.on{background:var(--acc);color:var(--accfg)}
+nav a:focus-visible,.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.badge{background:var(--gold);color:#1b1f2a;border-radius:999px;padding:0 7px;font-size:.8rem;margin-left:4px}
+main{max-width:1100px;margin:0 auto;padding:28px 20px 60px}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;padding:20px 0 40px}
+.hero p{max-width:46ch;color:var(--mut);font-size:1.1rem}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-block;background:var(--acc);color:var(--accfg);border:2px solid var(--acc);border-radius:10px;padding:10px 18px;font:600 1rem Jost,sans-serif;cursor:pointer;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.sm{padding:6px 12px;font-size:.9rem}
+.btn.del{background:transparent;color:var(--err);border-color:var(--err)}
+.collage{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.collage .ph:first-child{grid-row:span 2;aspect-ratio:auto}
+.ph{background:color-mix(in srgb,var(--c) 18%,var(--card));aspect-ratio:1;display:grid;place-items:center;border-radius:14px;padding:12%}
+.ph svg{width:100%;height:100%}
+.f{fill:var(--c);stroke:rgba(20,20,30,.45);stroke-width:1.6;stroke-linejoin:round}
+.d{fill:none;stroke:rgba(20,20,30,.4);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:10px 0 44px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.box p{margin:0;color:var(--mut)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.card .ph{border-radius:0}
+.card .in{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .meta{color:var(--mut);font-size:.9rem}
+.price{font-weight:600;font-size:1.1rem}
+.card .btn{margin-top:auto}
+.bar{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:14px 0 22px}
+label{display:flex;flex-direction:column;gap:4px;font-size:.9rem;color:var(--mut);font-weight:500}
+input,select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;min-width:0}
+input[type=range]{padding:0}
+.empty{color:var(--mut);padding:30px 0}
+.line{display:grid;grid-template-columns:70px 1fr auto auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.line .ph{padding:8px;border-radius:8px}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:30px;height:30px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-size:1.1rem}
+.total{font:700 1.6rem "Bodoni Moda",serif;text-align:right;margin:18px 0}
+.msg{margin:10px 0;font-weight:500}.msg.ok{color:var(--ok)}.msg.err{color:var(--err)}
+.form{display:grid;gap:12px;max-width:380px}
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+td input{width:90px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.stack{display:grid;gap:10px}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:20}
+#toast.on{opacity:1}
+footer{border-top:1px solid var(--line);padding:24px 20px;text-align:center;color:var(--mut);font-size:.9rem}
+@media (max-width:760px){.hero,.two,.feat{grid-template-columns:1fr}.line{grid-template-columns:56px 1fr;}.line>:nth-child(n+3){grid-column:2}}
+@media print{header,footer,.noprint,#toast{display:none!important}body{background:#fff;color:#000}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="#inicio">Vela</a>
+  <nav aria-label="Principal">
+    <a href="#inicio" data-v="inicio">Inicio</a>
+    <a href="#catalogo" data-v="catalogo">Catálogo</a>
+    <a href="#carrito" data-v="carrito">Carrito<span class="badge" id="cnt0">0</span></a>
+    <a href="#cuenta" data-v="cuenta" id="navc">Mi cuenta</a>
+    <a href="#admin" data-v="admin" id="nava" hidden>Panel admin</a>
+  </nav>
+</header>
+<main id="app"></main>
+<footer>Vela Boutique · San Salvador, El Salvador · hola@velaboutique.sv · Tel. 7000 0000<br>Proyecto escolar, Módulo 1.8, INSAM</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const money=n=>'$'+Number(n).toFixed(2);
+const mem={};
+const S={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):(k in mem?mem[k]:d)}catch(e){return k in mem?mem[k]:d}},set(k,v){mem[k]=v;try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* Imágenes de producto: ilustraciones vectoriales */
+const P={
+camiseta:['M30 14L42 10Q50 20 58 10L70 14L90 32L78 44L69 38V88H31V38L22 44L10 32Z','M42 10Q50 20 58 10'],
+blusa:['M32 12L44 10L50 24L56 10L68 12L84 34L74 44L68 38L72 88H28L32 38L26 44L16 34Z','M44 10L50 24L56 10M32 38H68'],
+chaqueta:['M32 12L44 10Q50 16 56 10L68 12L88 40L86 82L76 82L68 46V88H32V46L24 82L14 82L12 40Z','M50 16V88M38 66H46M54 66H62'],
+vestido:['M38 10L44 10Q50 22 56 10L62 10L63 36L76 90H24L37 36Z','M37 36H63M44 10Q50 22 56 10'],
+pantalon:['M30 10H70L75 90H55L50 38L45 90H25Z','M30 18H70M50 18V38'],
+falda:['M34 16H66L84 88H16Z','M34 16H66M42 16L34 88M50 16V88M58 16L66 88'],
+bolso:['M20 40H80L84 88H16Z','M36 40V28Q36 14 50 14Q64 14 64 28V40M44 52H56V60H44Z'],
+zapato:['M10 62V44Q28 44 34 32L44 40Q58 44 76 54Q90 58 90 70V76H10Z','M10 70H90M40 46L46 52M48 48L54 54'],
+sombrero:['M8 66Q50 82 92 66Q92 78 50 82Q8 78 8 66ZM26 66Q24 26 50 26Q76 26 74 66Q50 74 26 66Z','M25 58Q50 66 75 58']
+};
+const art=(t,c)=>`<div class="ph" style="--c:${c}"><svg viewBox="0 0 100 100" role="img" aria-label="Ilustración de ${t}"><path class="f" d="${(P[t]||P.camiseta)[0]}"/><path class="d" d="${(P[t]||P.camiseta)[1]}"/></svg></div>`;
+
+const DEF=[
+{id:1,n:'Camiseta de lino marfil',cat:'Ropa',t:'camiseta',hex:'#e8dcc4',col:'Marfil',tallas:['S','M','L'],precio:24},
+{id:2,n:'Blusa de satén rosa',cat:'Ropa',t:'blusa',hex:'#e8a7b5',col:'Rosa',tallas:['S','M','L'],precio:32},
+{id:3,n:'Vestido esmeralda',cat:'Ropa',t:'vestido',hex:'#0f5c4d',col:'Verde',tallas:['S','M','L'],precio:58},
+{id:4,n:'Vestido de noche negro',cat:'Ropa',t:'vestido',hex:'#262a36',col:'Negro',tallas:['S','M'],precio:64},
+{id:5,n:'Pantalón sastre arena',cat:'Ropa',t:'pantalon',hex:'#b79b74',col:'Arena',tallas:['S','M','L','XL'],precio:42},
+{id:6,n:'Falda plisada lila',cat:'Ropa',t:'falda',hex:'#b9a4de',col:'Lila',tallas:['S','M'],precio:36},
+{id:7,n:'Chaqueta denim azul',cat:'Ropa',t:'chaqueta',hex:'#3f6591',col:'Azul',tallas:['M','L','XL'],precio:55},
+{id:8,n:'Camiseta básica negra',cat:'Ropa',t:'camiseta',hex:'#262a36',col:'Negro',tallas:['S','M','L','XL'],precio:18},
+{id:9,n:'Bolso de cuero camel',cat:'Accesorios',t:'bolso',hex:'#a8713a',col:'Camel',tallas:['Única'],precio:72},
+{id:10,n:'Bolso mini rojo',cat:'Accesorios',t:'bolso',hex:'#c0392b',col:'Rojo',tallas:['Única'],precio:45},
+{id:11,n:'Zapatillas blancas',cat:'Calzado',t:'zapato',hex:'#f2f2f2',col:'Blanco',tallas:['36','37','38','39','40'],precio:60},
+{id:12,n:'Sombrero de paja',cat:'Accesorios',t:'sombrero',hex:'#d9b872',col:'Paja',tallas:['Única'],precio:28}];
+
+const st={products:S.get('v_prod',DEF),cart:S.get('v_cart',[]),users:S.get('v_users',[]),user:S.get('v_user',null),orders:S.get('v_ord',[])};
+const save=()=>{S.set('v_prod',st.products);S.set('v_cart',st.cart);S.set('v_users',st.users);S.set('v_user',st.user);S.set('v_ord',st.orders)};
+const find=id=>st.products.find(p=>p.id===id);
+const isAdmin=()=>st.user&&st.user.r==='admin';
+let tt;const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),1800)};
+
+async function hash(p){try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(p));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return 'x'+btoa(unescape(encodeURIComponent(p)))}}
+async function seed(){if(!st.users.some(u=>u.e==='admin@vela.sv')){st.users.push({n:'Administración',e:'admin@vela.sv',h:await hash('admin123'),r:'admin'});save()}}
+
+function card(p){const sel=p.tallas.length>1?`<label>Talla<select id="t${p.id}">${p.tallas.map(t=>`<option>${esc(t)}</option>`).join('')}</select></label>`:'';
+return `<article class="card">${art(p.t,p.hex)}<div class="in"><h3>${esc(p.n)}</h3><div class="meta">${esc(p.cat)} · ${esc(p.col)}</div><div class="price">${money(p.precio)}</div>${sel}<button class="btn sm" onclick="add(${p.id})">Agregar al carrito</button></div></article>`}
+
+const V={
+inicio:()=>`<section class="hero"><div><h1>Viste tu semana con piezas que sí usas.</h1><p>Prendas, calzado y accesorios con tallas y precios claros. Mira el catálogo desde tu celular, arma tu carrito y revisa tus pedidos cuando quieras.</p><div class="row"><a class="btn" href="#catalogo">Ver catálogo</a><a class="btn ghost" href="#cuenta">Crear mi cuenta</a></div></div>
+<div class="collage">${art('vestido','#0f5c4d')}${art('bolso','#a8713a')}${art('zapato','#e8a7b5')}</div></section>
+<section class="feat"><div class="box"><h3>Catálogo con filtros</h3><p>Busca por nombre o filtra por categoría, talla, color y precio.</p></div><div class="box"><h3>Carrito y pedidos</h3><p>Cambia cantidades, mira el total y guarda tu historial de compras.</p></div><div class="box"><h3>Pensado para el celular</h3><p>El sitio se adapta a teléfono, tableta y computadora.</p></div></section>
+<h2>Novedades</h2><div class="grid">${st.products.slice(0,4).map(card).join('')}</div>`,
+
+catalogo:()=>`<h2>Catálogo</h2><div class="bar noprint"><label>Buscar<input id="q" type="search" placeholder="Nombre de la prenda" oninput="drawGrid()"></label><label>Categoría<select id="fc" onchange="drawGrid()"></select></label><label>Talla<select id="ft" onchange="drawGrid()"></select></label><label>Color<select id="fo" onchange="drawGrid()"></select></label><label>Precio máximo: <b id="mv"></b><input id="fm" type="range" min="0" step="1" oninput="drawGrid()"></label></div><p id="cnt" class="meta" role="status"></p><div class="grid" id="grid"></div>`,
+
+carrito:()=>{const ls=st.cart.map(l=>({l,p:find(l.id)})).filter(x=>x.p);
+if(!ls.length)return `<h2>Tu carrito</h2><p class="empty">Aún no agregaste productos. <a href="#catalogo">Ir al catálogo</a></p><div id="ped"></div>`;
+const tot=ls.reduce((a,x)=>a+x.p.precio*x.l.q,0);
+return `<h2>Tu carrito</h2>${ls.map(({l,p})=>`<div class="line">${art(p.t,p.hex)}<div><b>${esc(p.n)}</b><div class="meta">Talla ${esc(l.t)} · ${money(p.precio)} c/u</div></div><div class="qty"><button aria-label="Quitar uno" onclick="qty('${l.k}',-1)">−</button><span>${l.q}</span><button aria-label="Agregar uno" onclick="qty('${l.k}',1)">+</button></div><div><b>${money(p.precio*l.q)}</b> <button class="btn del sm" onclick="qty('${l.k}',-99)">Quitar</button></div></div>`).join('')}<div class="total">Total: ${money(tot)}</div><div class="row" style="justify-content:flex-end"><button class="btn" onclick="checkout()">Finalizar pedido</button></div><div id="ped" class="msg"></div>`},
+
+cuenta:()=>{if(!st.user)return `<h2>Mi cuenta</h2><div class="tabs"><button class="btn sm" id="tl" onclick="tab('l')">Iniciar sesión</button><button class="btn sm ghost" id="tr" onclick="tab('r')">Crear cuenta</button></div>
+<div class="form" id="fl"><label>Correo<input id="le" type="email" autocomplete="username"></label><label>Contraseña<input id="lp" type="password" autocomplete="current-password"></label><button class="btn" onclick="login()">Entrar</button><p class="meta">Demostración del panel: admin@vela.sv / admin123</p></div>
+<div class="form" id="fr" hidden><label>Nombre completo<input id="rn" autocomplete="name"></label><label>Correo<input id="re" type="email" autocomplete="email"></label><label>Contraseña (mínimo 6 caracteres)<input id="rp" type="password" autocomplete="new-password"></label><button class="btn" onclick="register()">Crear mi cuenta</button></div><div id="am" class="msg" role="alert"></div>`;
+const os=st.orders.filter(o=>o.e===st.user.e);
+return `<h2>Hola, ${esc(st.user.n)}</h2><div class="row" style="margin:0 0 20px">${isAdmin()?'<a class="btn" href="#admin">Ir al panel admin</a>':''}<button class="btn ghost" onclick="logout()">Cerrar sesión</button></div><h3>Historial de pedidos</h3>${os.length?os.map(o=>`<div class="box" style="margin-bottom:10px"><b>${o.id}</b> · ${esc(o.f)} · ${money(o.total)}<div class="meta">${o.items.map(i=>`${i.q}× ${esc(i.n)} (${esc(i.t)})`).join(', ')}</div></div>`).join(''):'<p class="empty">Todavía no tienes pedidos.</p>'}`},
+
+admin:()=>{if(!isAdmin())return `<h2>Panel administrativo</h2><p class="empty">Solo la administración puede entrar. <a href="#cuenta">Iniciar sesión</a></p>`;
+const tot=st.orders.reduce((a,o)=>a+o.total,0),cnt={};st.orders.forEach(o=>o.items.forEach(i=>cnt[i.n]=(cnt[i.n]||0)+i.q));
+const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,5);
+return `<h2>Panel administrativo</h2><div class="noprint"><h3>Productos</h3><div class="wrap"><table><thead><tr><th>Producto</th><th>Categoría</th><th>Precio</th><th></th></tr></thead><tbody>${st.products.map(p=>`<tr><td>${esc(p.n)}</td><td>${esc(p.cat)}</td><td><input type="number" min="0" step="0.5" value="${p.precio}" aria-label="Precio de ${esc(p.n)}" onchange="price(${p.id},this.value)"></td><td><button class="btn del sm" onclick="del(${p.id})">Eliminar</button></td></tr>`).join('')}</tbody></table></div>
+<h3 style="margin-top:28px">Agregar producto</h3><div class="form" style="max-width:640px;grid-template-columns:1fr 1fr"><label>Nombre<input id="an"></label><label>Precio ($)<input id="ap" type="number" min="0" step="0.5"></label><label>Categoría<select id="ac"><option>Ropa</option><option>Calzado</option><option>Accesorios</option></select></label><label>Tipo de ilustración<select id="at">${Object.keys(P).map(k=>`<option>${k}</option>`).join('')}</select></label><label>Color<input id="ah" type="color" value="#0f5c4d"></label><label>Nombre del color<input id="ao" placeholder="Ej. Verde"></label><label style="grid-column:span 2">Tallas separadas por coma<input id="as" value="S,M,L"></label><button class="btn" style="grid-column:span 2" onclick="addp()">Guardar producto</button></div><div id="adm" class="msg" role="alert"></div></div>
+<h3 style="margin-top:28px">Reporte de ventas</h3><div class="two"><div class="box"><p>Pedidos</p><h2>${st.orders.length}</h2></div><div class="box"><p>Ventas totales</p><h2>${money(tot)}</h2></div></div>
+<h3 style="margin-top:20px">Más vendidos</h3>${top.length?`<ol>${top.map(([n,q])=>`<li>${esc(n)}: ${q} unidades</li>`).join('')}</ol>`:'<p class="empty">Aún no hay ventas registradas.</p>'}
+${st.orders.length?`<div class="wrap"><table><thead><tr><th>Pedido</th><th>Fecha</th><th>Cliente</th><th>Total</th></tr></thead><tbody>${st.orders.map(o=>`<tr><td>${o.id}</td><td>${esc(o.f)}</td><td>${esc(o.c)}</td><td>${money(o.total)}</td></tr>`).join('')}</tbody></table></div>`:''}
+<div class="row noprint"><button class="btn" onclick="window.print()">Imprimir o guardar en PDF</button></div>`}
+};
+
+const A={catalogo(){const u=k=>[...new Set(st.products.map(p=>k==='t'?0:p[k]))].sort();
+const ts=[...new Set(st.products.flatMap(p=>p.tallas))];const mx=Math.ceil(Math.max(10,...st.products.map(p=>p.precio)));
+const op=(a,l)=>`<option value="">${l}</option>`+a.map(x=>`<option>${esc(x)}</option>`).join('');
+$('#fc').innerHTML=op(u('cat'),'Todas');$('#fo').innerHTML=op(u('col'),'Todos');$('#ft').innerHTML=op(ts,'Todas');
+$('#fm').max=mx;$('#fm').value=mx;drawGrid()}};
+
+function drawGrid(){const q=$('#q').value.trim().toLowerCase(),c=$('#fc').value,t=$('#ft').value,o=$('#fo').value,m=+$('#fm').value;$('#mv').textContent=money(m);
+const r=st.products.filter(p=>(!q||p.n.toLowerCase().includes(q))&&(!c||p.cat===c)&&(!t||p.tallas.includes(t))&&(!o||p.col===o)&&p.precio<=m);
+$('#grid').innerHTML=r.length?r.map(card).join(''):'<p class="empty">Ningún producto coincide. Quita algún filtro para ver más prendas.</p>';$('#cnt').textContent=r.length+' productos'}
+
+function add(id){const p=find(id),s=document.getElementById('t'+id),t=s?s.value:p.tallas[0],k=id+'|'+t;const l=st.cart.find(x=>x.k===k);l?l.q++:st.cart.push({k,id,t,q:1});save();badge();toast('Agregado: '+p.n)}
+function qty(k,d){const l=st.cart.find(x=>x.k===k);if(!l)return;l.q+=d;if(l.q<1)st.cart=st.cart.filter(x=>x!==l);save();badge();go()}
+function checkout(){if(!st.user){location.hash='#cuenta';return}
+const ls=st.cart.map(l=>({l,p:find(l.id)})).filter(x=>x.p);if(!ls.length)return;
+const o={id:'P-'+(1001+st.orders.length),e:st.user.e,c:st.user.n,f:new Date().toLocaleDateString('es-SV'),items:ls.map(({l,p})=>({n:p.n,t:l.t,q:l.q,pr:p.precio})),total:ls.reduce((a,x)=>a+x.p.precio*x.l.q,0)};
+st.orders.push(o);st.cart=[];save();badge();$('#app').innerHTML=`<h2>Pedido registrado</h2><p class="msg ok">Tu pedido ${o.id} por ${money(o.total)} quedó guardado. Lo verás en tu historial.</p><a class="btn" href="#cuenta">Ver mis pedidos</a>`}
+function tab(w){$('#fl').hidden=w!=='l';$('#fr').hidden=w!=='r';$('#tl').classList.toggle('ghost',w!=='l');$('#tr').classList.toggle('ghost',w!=='r');$('#am').textContent=''}
+const am=(m,ok)=>{const e=$('#am');e.textContent=m;e.className='msg '+(ok?'ok':'err')};
+async function register(){const n=$('#rn').value.trim(),e=$('#re').value.trim().toLowerCase(),p=$('#rp').value;
+if(n.length<3)return am('Escribe tu nombre completo.');if(!/^\S+@\S+\.\S+$/.test(e))return am('Escribe un correo válido, por ejemplo nombre@correo.com.');if(p.length<6)return am('La contraseña necesita al menos 6 caracteres.');
+if(st.users.some(u=>u.e===e))return am('Ese correo ya tiene cuenta. Inicia sesión.');
+const u={n,e,h:await hash(p),r:'cliente'};st.users.push(u);st.user=u;save();go()}
+async function login(){const e=$('#le').value.trim().toLowerCase(),h=await hash($('#lp').value);const u=st.users.find(x=>x.e===e&&x.h===h);
+if(!u)return am('Correo o contraseña incorrectos. Revisa los datos e inténtalo de nuevo.');st.user=u;save();go()}
+function logout(){st.user=null;save();go()}
+function price(id,v){const p=find(id);p.precio=Math.max(0,+v||0);save();toast('Precio actualizado')}
+function del(id){if(!confirm('¿Eliminar este producto del catálogo?'))return;st.products=st.products.filter(p=>p.id!==id);st.cart=st.cart.filter(l=>l.id!==id);save();badge();go()}
+function addp(){const n=$('#an').value.trim(),pr=parseFloat($('#ap').value),ta=$('#as').value.split(',').map(x=>x.trim()).filter(Boolean),m=$('#adm');
+if(!n||isNaN(pr)||!ta.length){m.textContent='Completa nombre, precio y al menos una talla.';m.className='msg err';return}
+st.products.push({id:Math.max(0,...st.products.map(p=>p.id))+1,n,cat:$('#ac').value,t:$('#at').value,hex:$('#ah').value,col:$('#ao').value.trim()||'Otro',tallas:ta,precio:pr});save();go();toast('Producto guardado')}
+
+function badge(){$('#cnt0').textContent=st.cart.reduce((a,l)=>a+l.q,0);$('#nava').hidden=!isAdmin();$('#navc').textContent=st.user?'Mi cuenta':'Ingresar'}
+function go(){const v=(location.hash||'#inicio').slice(1);const k=V[v]?v:'inicio';$('#app').innerHTML=V[k]();if(A[k])A[k]();
+document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===k));badge();document.title='Vela Boutique | '+k.charAt(0).toUpperCase()+k.slice(1)}
+addEventListener('hashchange',()=>{go();scrollTo(0,0)});
+seed().then(go);go();
+</script>
+</body>
+</html>
